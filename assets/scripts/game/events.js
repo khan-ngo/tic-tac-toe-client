@@ -79,16 +79,28 @@ const clearBox = function (number) {
   document.getElementById('s' + number).innerText = ''
 }
 
-module.exports = {
-  nextMove,
-  setMessage,
-  switchTurn,
-  checkForWinner,
-  checkRow,
-  getBox,
-  clearBox
+startGame()
+//
+// module.exports = {
+//   nextMove,
+//   setMessage,
+//   switchTurn,
+//   checkForWinner,
+//   checkRow,
+//   getBox,
+//   clearBox
+// }
+
+startGame()
+
+const addHandlers = function () => {
+  $('#sign-up').on('submit', onSignUp)
+  $('#sign-in').on('submit', onSignIn)
+  $('#sign-out').on('submit', onSignOut)
+  $('#change-password').on('submit', onChangePasswordOut)
 }
 
-// startGame()
 
-// console.log('Read the End of scripts/index.js ..... YAHHH')
+
+
+console.log('Read the End of scripts/index.js ..... YAHHH')
