@@ -1,2 +1,47 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/';
+// @import './authentication.scss';
+
+body {
+  width: 550px;
+  margin: auto;
+}
+
+$background-color: #4e4e4e;
+$font-color: #dfdfdf;
+$white: #fff;
+
+body {
+  color: $font-color;
+}
+
+.box {
+  border: 5px solid $white;
+  height: 150px;
+}
+
+
+h1{
+  border-bottom: 1px solid black;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+  .square {
+    height: 80px;
+    width: 80px;
+    font-size: 45px;
+    text-align: center;
+    background: #EDADC7;
+        }
+
+#message {
+font-size: 18px;
+font-family: 'Open Sans', sans-serif;
+}
+
+#restart {
+font-size: 18px;
+font-family: 'Amatic SC', cursive;
+text-decoration: none;
+}
