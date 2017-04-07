@@ -11,7 +11,7 @@ const signUpFailure = (error) => {
 }
 
 const signInSuccess = (data) => {
-  console.log('You logged in Successfully. data: ', data)
+  console.log('You logged in Successfully. data: ', data.user)
   store.user = data.user
   console.log('Sign in successful')
   console.log('You logged in Successfully. store: ', store)
@@ -23,10 +23,7 @@ const signInFailure = (error) => {
 }
 
 const changePasswordSuccess = (data) => {
-  console.log('You Successfully Changed your Password. data: ', data)
-  store.user = data.user
   console.log('ChangePassword successful')
-  console.log('You Successfully Changed your Password. store: ', store)
 }
 
 const changePasswordFailure = (error) => {

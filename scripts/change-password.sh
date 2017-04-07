@@ -2,11 +2,11 @@
 
 #curl "http://localhost:3000/change-password/${ID}" \
   # ID=5 OLDPW=pwd NEWPW=passwd TOKEN=BAhJIiVkNjMwYmZjMDVlOGVhMGU4NmRiZDUxNzAwNDJkMDg4YQY6BkVG--bb47bf6c1e53284b932c0075a23e2249ba12f8d3 scripts/change-password.sh
-ID="1"
-OLDPW="pw"
-NEWPW="passwd"
+ID="3"
+OLDPW="two"
+NEWPW="two"
 
-TOKEN="BAhJIiUxNTAyYjYxNGY3ZGIxMzQ4ZjRhNmMwZGY0ZjJiMjM1ZAY6BkVG--5313971010c31ef02b1fb68f49b2a4508d11b6da"
+TOKEN="BAhJIiVhMWQyMjM0NjkxMWViN2I2NDhmMzcwY2RkNzUyOTA2MQY6BkVG--2403d578ef98af87fc257daa91e2a71d8445dfa7"
   API="${API_ORIGIN:-http://localhost:4741}"
   URL_PATH="/change-password/$ID"
 
