@@ -9,6 +9,7 @@ const startGame = function () {
   }
 
   document.turn = 'X'
+  console.log('document.turn: ', document.turn)
   document.winner = null
 
   setMessage(document.turn + ' - It\'s your turn to start.')
@@ -78,18 +79,6 @@ const getBox = function (number) {
 const clearBox = function (number) {
   document.getElementById('s' + number).innerText = ''
 }
-
-startGame()
-
-// module.exports = {
-//   nextMove,
-//   setMessage,
-//   switchTurn,
-//   checkForWinner,
-//   checkRow,
-//   getBox,
-//   clearBox
-// }
 
 startGame()
 
