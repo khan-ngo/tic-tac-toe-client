@@ -15,7 +15,7 @@ const signInSuccess = (data) => {
   store.user = data.user
   console.log('Sign in successful')
   console.log('You logged in Successfully. store: ', store)
-  console.log(store.user)
+  console.log('Your Store.USer: ', store.user)
 }
 
 const signInFailure = (error) => {

@@ -1,128 +1,112 @@
 <!DOCTYPE html>
     <head>
       <title>Tic-Tac-Toe</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags unless you know what you are doing -->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <!-- Do not add `link` tags unless you know what you are doing -->
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <!-- Do not add `script` tags unless you know what you are doing -->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+        <!-- Do not add `script` tags unless you know what you are doing -->
+        <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+        <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+        <script src="assets/scripts/game/ticTacToe.js" type="text/javascript" charset="utf-8" defer></script>
 
-    </head>
+      </head>
 <body>
+  <!-- <div class="page-container"> -->
+    <!-- top navbar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand">Tic Tac Toe</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                  <!-- <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">sighUP</a></li>
+                    <li><a href="#">changePassword</a></li>
+                    <li><a href="#">logOut</a></li>
+                  </ul> -->
+                  <form id="sign-out" class="navbar-form navbar-right" >
+                    <fieldset>
+                      <button type="submit"  name="submit" value="SignOut" class="btn btn-default">SignOut</button>
+                    </fieldset>
+                  </form>
 
-    <!-- <body onload='startGame()'> -->
-      <h1>Tic Tac Toe</h1>
-      <div ID="message"> This is where the message will go </div>
+                    <form id="sign-in" class="navbar-form navbar-right" >
+                          <fieldset>
+                            <input type="text" name="credentials[email]" id="sign-in-email" placeholder="your@email.com!">
+                            <input type="password" name="credentials[password]" id="sign-in-password" placeholder="Password">
+                            <!-- <input type="submit" name="submit" value="Sign in!"> -->
+                            <button type="submit"  name="submit" value="Sign up!" class="btn btn-default">SignIn</button>
+                          </fieldset>
+                        </form>
 
-      <!-- USE Table -->
-      <!-- <table border="1">
-        <tr>
-          <td class="square" id='s1' onClick="nextMove(this)"></td>
-          <td class="square" id='s2' onClick="nextMove(this)"></td>
-          <td class="square" id='s3' onClick="nextMove(this)"></td>
-        </tr>
-        <tr>
-          <td class="square" id='s4' onClick="nextMove(this)"></td>
-          <td class="square" id='s5' onClick="nextMove(this)"></td>
-          <td class="square" id='s6' onClick="nextMove(this)"></td>
-        </tr>
-        <tr>
-          <td class="square" id='s7' onClick="nextMove(this)"></td>
-          <td class="square" id='s8' onClick="nextMove(this)"></td>
-          <td class="square" id='s9' onClick="nextMove(this)"></td>
-        </tr>
-      </table>  -->
+                    </div>
+              </div>
+        </nav>
 
-      <!-- USE bootstrap Columns-->
-      <div class="row">
-        <div class="col-xs-4 box square" id='s1' onClick="nextMove(this)"></div>
-        <div class="col-xs-4 box square" id='s2' onClick="nextMove(this)"></div>
-        <div class="col-xs-4 box square" id='s3' onClick="nextMove(this)"></div>
-    </div>
-    <div class="row">
-      <div class="col-xs-4 box square" id='s4' onClick="nextMove(this)"></div>
-      <div class="col-xs-4 box square" id='s5' onClick="nextMove(this)"></div>
-      <div class="col-xs-4 box square" id='s6' onClick="nextMove(this)"></div>
-  </div>
-  <div class="row">
-      <div class="col-xs-4 box square" id='s7' onClick="nextMove(this)"></div>
-      <div class="col-xs-4 box square" id='s8' onClick="nextMove(this)"></div>
-      <div class="col-xs-4 box square" id='s9' onClick="nextMove(this)"></div>
-      </div>
-      <button class="btn btn-default"><a href="javascript: startGame()">StartNewGame</a></button>
+    <div class="container-fluid">
+              <div class="row row-offcanvas row-offcanvas-left">
 
-    <!-- <a href="javascript: startGame()" class="restart" >Start New Game</a> -->
-    <!-- <script src="assets/scripts/ticTacToe.js"></script> -->
+                 <div class="col-sm-3 col-md-2" role="navigation">
+
+                   <form class="sign-up">
+                     <fieldset>
+                       <legend>Sign up!</legend>
+                       <input type="email" name="credentials[email]" id="sign-up-email" placeholder="your@email.com!">
+                       <input type="password" name="credentials[password]" id="sign-up-password" placeholder="Password">
+                       <input type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="Confirm-Password">
+                       <button type="submit"  name="submit" value="Sign up!" class="btn btn-default">SignUp</button>
+                     </fieldset>
+                   </form>
+
+                </div><!--/span-->
+
+                <div class="col-sm-9 col-md-10 main">
+                  <!--toggle sidebar button-->
+          <!-- <p class="visible-xs">
+              <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">
+                <i class="glyphicon glyphicon-chevron-left"></i></button>
+            </p> -->
+
+              <div class='gameBoard'>
+                <h1 ID="message" class="page-header">This is where the message will go</h1>
+
+                  <div class="row">
+                    <div class="col-xs-4 box square" id='s1' onClick="nextMove(this)"></div>
+                    <div class="col-xs-4 box square" id='s2' onClick="nextMove(this)"></div>
+                    <div class="col-xs-4 box square" id='s3' onClick="nextMove(this)"></div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-4 box square" id='s4' onClick="nextMove(this)"></div>
+                  <div class="col-xs-4 box square" id='s5' onClick="nextMove(this)"></div>
+                  <div class="col-xs-4 box square" id='s6' onClick="nextMove(this)"></div>
+              </div>
+              <div class="row">
+                  <div class="col-xs-4 box square" id='s7' onClick="nextMove(this)"></div>
+                  <div class="col-xs-4 box square" id='s8' onClick="nextMove(this)"></div>
+                  <div class="col-xs-4 box square" id='s9' onClick="nextMove(this)"></div>
+                  </div>
+              <button class="restart-btn"> <a href="javascript: startGame()">Restart </a></button>
+              </div><!-- gameboard -->
 
 
-<!-- ========= Authentication ============ -->
-<div class="container">
-    <div class="row">
+            </div><!-- main -->
+        	</div>
+        </div><!--/.container-->
 
-      <div class="col-xs-3 box" >
-      <form id="sign-up">
-        <fieldset>
-          <legend>Sign up!</legend>
-          <input type="email" name="credentials[email]" id="sign-up-email" placeholder="your@email.com!">
-          <input type="password" name="credentials[password]" id="sign-up-password" placeholder="Password">
-          <input type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="Password">
-          <!-- <input type="submit" name="submit" value="Sign up!">SignUp</input> -->
-          <button type="submit"  name="submit" value="Sign up!" class="btn btn-default">SignUp</button>
-        </fieldset>
-      </form>
-    </div>
 
-        <div class="col-xs-3 box" >
-          <h1>Log In</h1>
-          <form id="sign-in">
-            <fieldset class="signin-border">
-              <legend class="signin-border">Sign in!</legend>
-              <input type="text" name="credentials[email]" id="sign-in-email" placeholder="your@email.com!">
-              <input type="password" name="credentials[password]" id="sign-in-password" placeholder="Password">
-              <!-- <input type="submit" name="submit" value="Sign in!"> -->
-              <button type="submit"  name="submit" value="Sign up!" class="btn btn-default">SignIn</button>
-            </fieldset>
-          </form>
-        </div>
-
-        <div class="col-xs-3">
-          <form id="change-password">
-                  <fieldset>
-                  <legend>Change Password!</legend>
-                  <!-- <input type="password" name="password[old]" id="change-password-old" placeholder="Old Password!">
-                  <input type="password" name="credentials[new]" id="change-password-new" placeholder="New Password"> -->
-              <!-- <button type="submit"  name="submit" value="ChangePassword" class="btn btn-default">ChangePW</button> -->
-              <input type="password" name="passwords[old]" value="" placeholder="Old Password">
-              <input type="password" name="passwords[new]" value="" placeholder="New Password">
-              <input type="submit" name="submit" value="ChangePW!">
-              </fieldset>
-          </form>
-        </div>
-
-        <div class="col-xs-3">
-        <h1>Sign Out !</h1>
-        <form id="sign-out">
-          <fieldset>
-            <legend>Sign Out!</legend>
-            <!-- <input type="submit" name="submit" value="Sign OUT!"> -->
-            <button type="submit"  name="submit" value="SignOut" class="btn btn-default">SignOut</button>
-
-          </fieldset>
-        </form>
-      </div>
-
-    </div>
 </div>
-
-
-
-
-
+          </div>
 
 
 
     </body>
+
 </html>

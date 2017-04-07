@@ -19,7 +19,6 @@ const authEvents = require('./auth/events.js')
 
 // ON.document ready
 $(() => {
-  // gameEvents.startGame()
   authEvents.addHandlers()
   // authenEvents.addHandlers()
 })
