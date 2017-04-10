@@ -12,15 +12,6 @@ const startGame = function () {
   for (let i = 1; i <= 9; i++) {
     clearBox(i)
   }
-  // document.getElementById('s1').innerText = ''
-  // document.getElementById('s2').innerText = ''
-  // document.getElementById('s3').innerText = ''
-  // document.getElementById('s4').innerText = ''
-  // document.getElementById('s5').innerText = ''
-  // document.getElementById('s6').innerText = ''
-  // document.getElementById('s7').innerText = ''
-  // document.getElementById('s8').innerText = ''
-  // document.getElementById('s9').innerText = ''
 
   document.winner = null
 
