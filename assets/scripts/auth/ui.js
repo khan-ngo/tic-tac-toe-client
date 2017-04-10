@@ -11,8 +11,6 @@ const signUpFailure = (error) => {
 }
 
 const signInSuccess = (data) => {
-  // console.log('signInSuccess ran: ', data)
-  // console.log('signInSuccess ran: ', store)
   store.user = data.user
 }
 
@@ -21,7 +19,6 @@ const signInFailure = (error) => {
 }
 
 const signOutSuccess = () => {
-  console.log('signOutSuccess ran')
   store.user = null
 }
 
