@@ -1,7 +1,4 @@
 
-// const api = require('./api')
-// const ui = require('./ui')
-
 document.turn = 'X'
 document.winner = null
 
@@ -11,12 +8,23 @@ const setMessage = function (msg) {
 
 const startGame = function () {
   event.preventDefault()
-  console.log('inside StartGame Function')
+
   for (let i = 1; i <= 9; i++) {
     clearBox(i)
-    console.log(i)
   }
-  setMessage(document.turn + ' - It\'s your turn to start.')
+  // document.getElementById('s1').innerText = ''
+  // document.getElementById('s2').innerText = ''
+  // document.getElementById('s3').innerText = ''
+  // document.getElementById('s4').innerText = ''
+  // document.getElementById('s5').innerText = ''
+  // document.getElementById('s6').innerText = ''
+  // document.getElementById('s7').innerText = ''
+  // document.getElementById('s8').innerText = ''
+  // document.getElementById('s9').innerText = ''
+
+  document.winner = null
+
+  setMessage(document.turn + ' - It\'s your turn to start. Select an empty square.')
 }
 
 const playerMove = function () {
@@ -30,9 +38,9 @@ const nextMove = function (square) {
     square.innerText = document.turn
     switchTurn()
   } else if (square.innerText === 'X' || square.innerText === 'O') {
-    setMessage('This square has already been marked.Pick another different square.')
+    setMessage('Pick another different square.')
   } else {
-    setMessage(document.turn + ' - Pick another different square.')
+    setMessage('Pick another different square.')
   }
 }
 
@@ -41,8 +49,8 @@ const switchTurn = function () {
   if (checkForWinner(document.turn)) {
     setMessage('Congratulations ' + document.turn + ', you won!')
     document.winner = document.turn
-  } else if (checkForTie()) {
-    setMessage('Tied Game ! Let\'s play again. ')
+  } else if (checkGameOver()) {
+    setMessage('Tied Game !')
   } else if (document.turn === 'X') {
     document.turn = 'O'
     setMessage(document.turn + ' - It\'s your turn. Select an empty square.')
@@ -68,7 +76,7 @@ const checkForWinner = function (move) {
   return result
 }
 
-const checkForTie = function () {
+const checkGameOver = function () {
   let result = false
 
   if (document.getElementById('s1').innerText !== '' &&
