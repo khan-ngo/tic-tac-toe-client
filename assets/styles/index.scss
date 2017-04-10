@@ -2,46 +2,86 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/';
 // @import './authentication.scss';
 
-body {
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+
+
+ body {
   width: 550px;
   margin: auto;
+  color: #dfdfdf;
 }
 
-$background-color: #4e4e4e;
-$font-color: #dfdfdf;
-$white: #fff;
-
-body {
-  color: $font-color;
-}
-
-.box {
-  border: 5px solid $white;
-  height: 150px;
-}
-
-
-h1{
+ h1{
   border-bottom: 1px solid black;
   font-family: 'Open Sans', sans-serif;
-
 }
+
+//*Authentication
+legend {
+  color: #008000;
+  text-align: inherit;
+}
+
+// .auth-column {
+//   width: 40% ;
+//   height: 100%;
+//   border: 1px solid green;
+//   float: left;
+//   background-color: black;
+//   padding: 5px;
+// }
+
+.box {
+  align: center;
+  border: 4px solid #fff;
+  height: 2em;
+  width: 2em;
+  position: relative;
+  font-color: #000000;
+}
+
+.auth-box {
+  margin: auto;
+  border: 1px solid #000000;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.btn {
+  text-transform: uppercase;
+}
+
+// gameboard
+
+.gameboard {
+  border: 1px solid #000000;
+  padding: 1px;
+}
+
+// .message {
+//   font-family: 'Open Sans', sans-serif;
+//   font-size: 35px;
+//   border-bottom: 1px solid black;
+//   }
 
   .square {
-    height: 80px;
-    width: 80px;
-    font-size: 45px;
+    background: #edadc7;
     text-align: center;
-    background: #EDADC7;
-        }
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 70px;
+    }
 
-#message {
-font-size: 18px;
-font-family: 'Open Sans', sans-serif;
+.square:hover{
+  background-color: #ff5177;
 }
 
-#restart {
-font-size: 18px;
-font-family: 'Amatic SC', cursive;
-text-decoration: none;
+.title {
+  text-align: center;
+}
+
+.restart-box {
+  padding: 30px;
 }

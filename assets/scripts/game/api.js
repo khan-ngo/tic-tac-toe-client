@@ -1,30 +1,23 @@
 'use strict'
-
 const config = require('../config')
 const store = require('../store')
 
-const signUp = (data) => {
+const createGame = () => {
+  console.log('I am in createGame')
   return $.ajax({
-    url: config.apiOrigin + '/sign-up',
+    url: config.apiOrigin + '/games',
     method: 'POST',
-    // data: data
-    data
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
-const signIn = (data) => {
+const updateGame = (data) => {
+  console.log('I am in updateGame. store is :', store)
+  const game = store.game
   return $.ajax({
-    url: config.apiOrigin + '/sign-in',
-    method: 'POST',
-    // data: data
-    data
-  })
-}
-
-const changePassword = (data) => {
-  console.log('dta is ', data)
-  return $.ajax({
-    url: config.apiOrigin + '/change-password/' + store.user.id,
+    url: config.apiOrigin + '/games/' + game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -33,20 +26,19 @@ const changePassword = (data) => {
   })
 }
 
-const signOut = () => {
-  return $.ajax({
-    url: config.apiOrigin + '/sign-out/' + store.user.id,
-    method: 'DELETE',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
+// const changePassword = (data) => {
+//   console.log('changePassword ran - store is: ', store)
+//   return $.ajax({
+//     url: config.apiOrigin + '/change-password/' + store.user.id,
+//     method: 'PATCH',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data
+//   })
+// }
 
 module.exports = {
-  // signUp: signUp,
-  signUp,
-  signIn,
-  changePassword,
-  signOut
+  createGame,
+  updateGame
 }
