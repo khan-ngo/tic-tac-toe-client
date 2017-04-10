@@ -1,44 +1,37 @@
 'use strict'
 
-const store = require('../store')
+const store = require('../store.js')
 
 const signUpSuccess = (data) => {
-  console.log(data)
+  console.log('signUpSuccess ran: ', data)
 }
 
 const signUpFailure = (error) => {
-  console.error(error)
+  console.error('signUpFailure ran: ', error)
 }
 
 const signInSuccess = (data) => {
-  console.log('You logged in Successfully. data: ', data.user)
   store.user = data.user
-  console.log('Sign in successful')
-  console.log('You logged in Successfully. store: ', store)
-  console.log('Your Store.USer: ', store.user)
 }
 
 const signInFailure = (error) => {
-  console.error(error)
-}
-
-const changePasswordSuccess = (data) => {
-  console.log('ChangePassword successful')
-}
-
-const changePasswordFailure = (error) => {
-  console.error(error)
+  console.error('signIn failed ran data is:', error)
 }
 
 const signOutSuccess = () => {
-  console.log('You logged OUT !!! Successfully.')
-  console.log('store is: ', store)
   store.user = null
-  console.log('store is: ', store)
 }
 
 const signOutFailure = (error) => {
-  console.error(error)
+  console.error('signOutFailure ran:', error)
+}
+
+const changePasswordSuccess = () => {
+  console.log('changePasswordSuccess ran')
+}
+
+const changePasswordFailure = (error) => {
+  console.error('changePasswordFailure ran:', error)
 }
 
 module.exports = {
@@ -46,8 +39,8 @@ module.exports = {
   signUpFailure,
   signInSuccess,
   signInFailure,
-  changePasswordSuccess,
-  changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  changePasswordSuccess,
+  changePasswordFailure
 }

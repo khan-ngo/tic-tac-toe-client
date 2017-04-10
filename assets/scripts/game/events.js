@@ -1,30 +1,36 @@
 
-console.log('inside scripts/index.js ..... YAHHH')
+// const api = require('./api')
+// const ui = require('./ui')
 
-const startGame = function () {
-  console.log('inside StartGame Function')
-  for (let i = 1; i <= 9; i++) {
-    clearBox(i)
-    console.log(i)
-  }
-
-  document.turn = 'X'
-  document.winner = null
-
-  setMessage(document.turn + ' - It\'s your turn to start.')
-}
+document.turn = 'X'
+document.winner = null
 
 const setMessage = function (msg) {
   document.getElementById('message').innerText = msg
 }
 
+const startGame = function () {
+  event.preventDefault()
+  console.log('inside StartGame Function')
+  for (let i = 1; i <= 9; i++) {
+    clearBox(i)
+    console.log(i)
+  }
+  setMessage(document.turn + ' - It\'s your turn to start.')
+}
+
+const playerMove = function () {
+  nextMove(this)
+}
+
 const nextMove = function (square) {
-  console.log('inside nextMove')
   if (document.winner != null) {
     setMessage(document.turn + ' already won. This game is over.')
   } else if (square.innerText === '') {
     square.innerText = document.turn
     switchTurn()
+  } else if (square.innerText === 'X' || square.innerText === 'O') {
+    setMessage('This square has already been marked.Pick another different square.')
   } else {
     setMessage(document.turn + ' - Pick another different square.')
   }
@@ -35,12 +41,14 @@ const switchTurn = function () {
   if (checkForWinner(document.turn)) {
     setMessage('Congratulations ' + document.turn + ', you won!')
     document.winner = document.turn
+  } else if (checkForTie()) {
+    setMessage('Tied Game ! Let\'s play again. ')
   } else if (document.turn === 'X') {
     document.turn = 'O'
-    setMessage(document.turn + ' - It\'s your turn!')
+    setMessage(document.turn + ' - It\'s your turn. Select an empty square.')
   } else {
     document.turn = 'X'
-    setMessage(document.turn + ' - It\'s your turn!')
+    setMessage(document.turn + ' - It\'s your turn. Select an empty square.')
   }
 }
 
@@ -55,6 +63,23 @@ const checkForWinner = function (move) {
   checkRow(1, 5, 9, move) ||
   checkRow(3, 5, 7, move) ||
   checkRow(3, 6, 9, move)) {
+    result = true
+  }
+  return result
+}
+
+const checkForTie = function () {
+  let result = false
+
+  if (document.getElementById('s1').innerText !== '' &&
+  document.getElementById('s2').innerText !== '' &&
+  document.getElementById('s3').innerText !== '' &&
+  document.getElementById('s4').innerText !== '' &&
+  document.getElementById('s5').innerText !== '' &&
+  document.getElementById('s6').innerText !== '' &&
+  document.getElementById('s7').innerText !== '' &&
+  document.getElementById('s8').innerText !== '' &&
+  document.getElementById('s9').innerText !== '') {
     result = true
   }
   return result
@@ -79,28 +104,19 @@ const clearBox = function (number) {
   document.getElementById('s' + number).innerText = ''
 }
 
-startGame()
-//
-// module.exports = {
-//   nextMove,
-//   setMessage,
-//   switchTurn,
-//   checkForWinner,
-//   checkRow,
-//   getBox,
-//   clearBox
-// }
-
-startGame()
-
-const addHandlers = function () => {
-  $('#sign-up').on('submit', onSignUp)
-  $('#sign-in').on('submit', onSignIn)
-  $('#sign-out').on('submit', onSignOut)
-  $('#change-password').on('submit', onChangePasswordOut)
+const addHandlers = function () {
+  $('#new-game').on('click', startGame)
+  $('#s1').on('click', playerMove)
+  $('#s2').on('click', playerMove)
+  $('#s3').on('click', playerMove)
+  $('#s4').on('click', playerMove)
+  $('#s5').on('click', playerMove)
+  $('#s6').on('click', playerMove)
+  $('#s7').on('click', playerMove)
+  $('#s8').on('click', playerMove)
+  $('#s9').on('click', playerMove)
 }
 
-
-
-
-console.log('Read the End of scripts/index.js ..... YAHHH')
+module.exports = {
+  addHandlers
+}
