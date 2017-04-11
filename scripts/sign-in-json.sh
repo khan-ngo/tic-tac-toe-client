@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# EMAIL=1@one.com PASSWORD=pwd scripts/sign-in-json.sh
+# EMAIL=2@email.com PASSWORD=two sh scripts/sign-in-json.sh
 
     curl http://localhost:4741/sign-in \
       --include \

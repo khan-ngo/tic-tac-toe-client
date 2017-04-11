@@ -1,8 +1,9 @@
 #!/bin/bash
-#test update by executing the prerequisite steps
-#EMAIL=test1 PASSWORD=test sh scripts/auth/sign-in.sh
-#TOKEN=  sh scripts/game/create.sh
-#ID= TOKEN= sh scripts/game/update.sh
+#EMAIL=2@email.com PASSWORD=two sh scripts/auth/sign-in.sh
+
+#TOKEN=BAhJIiVjMTc5OTYwOTAyZDVhOWEwOWQ2NmY0M2M4ZmFmODhmNgY6BkVG--6efdf6b549dfba20611ad4aedd8b785c614eaa58  sh scripts/game/create.sh
+
+#ID=24 TOKEN=BAhJIiVjMTc5OTYwOTAyZDVhOWEwOWQ2NmY0M2M4ZmFmODhmNgY6BkVG--6efdf6b549dfba20611ad4aedd8b785c614eaa58 sh scripts/game/update.sh
 API="${API_ORIGIN:-http://localhost:4741}"
 URL_PATH="/games/$ID"
 curl --include --request PATCH "${API}${URL_PATH}" \

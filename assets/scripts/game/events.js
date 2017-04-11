@@ -1,6 +1,11 @@
+'use strict'
+const store = require('../store')
+const api = require('./api')
+const ui = require('./ui')
 
 document.turn = 'X'
 document.winner = null
+document.wins = ''
 
 const setMessage = function (msg) {
   document.getElementById('message').innerText = msg
@@ -15,7 +20,26 @@ const startGame = function () {
 
   document.winner = null
 
+  api.createGame()
+  .then(ui.createGameSuccess)
+  .catch(ui.createGameFailure)
+
   setMessage(document.turn + ' - It\'s your turn to start. Select an empty square.')
+}
+const gatherDataForUpdateGame = function () {
+  index =
+  token =
+  gamevalue =
+
+  api.updateGame(index, token, game)
+  .then(ui.updateGameSuccess)
+    .catch(ui.updateGameFailure)
+}
+
+const trackWins = function () {
+  document.wins = document.wins++
+  store.wins = document.wins
+  gatherDataForUpdateGame()
 }
 
 const playerMove = function () {
@@ -39,6 +63,7 @@ const nextMove = function (square) {
 const switchTurn = function () {
   if (checkForWinner(document.turn)) {
     setMessage('Congratulations ' + document.turn + ', you won!')
+    trackWins()
     document.winner = document.turn
   } else if (checkGameOver()) {
     setMessage('Tied Game !')
