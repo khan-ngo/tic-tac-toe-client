@@ -164,6 +164,11 @@ const tiedGame = function () {
   getStats()
 }
 
+const returnToSignIn = function () {
+  $('#signInModal').show()
+  $('#signUpModal').hide()
+}
+
 const newGame = function () {
   $('#gameResultModal').hide()
   $('#gameboard').show()
