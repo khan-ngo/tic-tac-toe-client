@@ -15,7 +15,7 @@
 
 <!-- ========= NavBar ============ -->
 <div class="container vav-bar-container">
-  <nav class="navbar .navbar-fixed-top navbar-dark bg-inverse">
+  <nav class="navbar navbar-dark bg-inverse">
 
     <!-- <span id="nav-message">Tic-Tac-Toe</span> -->
 
@@ -148,8 +148,8 @@
 <div id="gameboardModal" class="modal-dialog" role="document">
   <div id="gameboard" class="modal-content">
     <div class="modal-header">
-      <div id="message" class="form-title">
-        <h3>Player "X" Starts !</h3>
+      <div id="message" class="form-title general-message">
+        <span>Player "X" Starts !</span>
       </div>
         </div>
         <div class="auth-alert">
@@ -190,17 +190,17 @@
   <div class="modal-content">
     <div class="modal-header">
       <div class="form-title mdl-card__title">
-        <h3 id="GameResultModalMessage" class="form-header">Game Message</h3>
+        <h3 id="GameResultModalMessage" class="form-header general-message">Game Message</h3>
       </div>
 
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Total Wins</h5>
+        <h4 class="modal-title">Total Wins</h4>
       </div>
 
-      <div id="game-stats-X">
+      <div id="game-stats-X" class="general-message">
         <h3>Player X stats</h3>
       </div>
-      <div id="game-stats-O">
+      <div id="game-stats-O" class="general-message">
         <h3>Player O stats</h3>
       </div>
 

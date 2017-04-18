@@ -11,10 +11,9 @@ body {
   width: 550px;
 }
 
-.vav-bar-container {
-  padding-top: 20px;
+.navbar {
+  padding-top: 15px;
 }
-
 .padding {
   padding: 10px;
 }
@@ -23,7 +22,7 @@ body {
   background: #edadc7;
   font-family: 'Gloria Hallelujah', cursive;
   font-size: 50px;
-  font-color: #000000;
+  font-color: #000;
   position: absolute;
   text-align: center;
   // display:inline-block;
@@ -65,8 +64,10 @@ background-color: #ff5177;
   text-align: center;
 }
 
-.title_message, .header-message {
+.title_message, .header-message, .general-message {
   text-align: center;
+  color: black;
+  font-size: 25px;
 }
 
 .title_message {
@@ -79,6 +80,6 @@ background-color: #ff5177;
 .message, .Game-message {
   font-family: 'Open Sans', sans-serif;
   font-size: 25px;
-  border-bottom: 1px solid black;
-  color: black;
+  border-bottom: 1px solid #000;
+  color: #000;
   }
