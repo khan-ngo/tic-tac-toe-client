@@ -41,6 +41,8 @@ const signInFailure = (error) => {
 
 const signOutSuccess = () => {
   store.user = null
+  $('#gameboard').hide()
+  $('.nav-btns').hide()
   $('#salutaion-message').show()
   $('#salutaion-message').html('Good-Bye')
   $('#header-message').html('Thank you for playing. Come again soon.')
