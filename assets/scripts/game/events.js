@@ -209,6 +209,11 @@ const getStats = function () {
   //  .catch(ui.getGamesFailure)
 }
 
+const returnToLogIn = function () {
+  $('#signUpModal').hide()
+  $('#signInModal').show()
+}
+
 const addHandlers = function () {
   $('#new-game').on('click', OnNewGame)
   $('#s0').on('click', playerMove)
@@ -220,6 +225,7 @@ const addHandlers = function () {
   $('#s6').on('click', playerMove)
   $('#s7').on('click', playerMove)
   $('#s8').on('click', playerMove)
+  $('#return-to-log-in').on('click', returnToLogIn)
 }
 
 module.exports = {
