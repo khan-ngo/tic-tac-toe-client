@@ -28,7 +28,7 @@ const signInSuccess = (data) => {
   $('.authentication-stuff').show()
   $('#gameboard').show()
   $('#salutaion-message').html('Tic Tac Toe')
-  $('#header-message').html(store.user.email + ', you are Player "X"')
+  $('.header-message').html(store.user.email + ' is Player "X"')
   gameEvents.newGame()
   $('#gameboard').show()
 }
