@@ -1,27 +1,37 @@
 'use strict'
+
 const store = require('../store')
+const events = require('./events')
 
-const createSuccess = (data) => {
-  console.log('createSuccess ran')
+const createGameSuccess = (data) => {
   store.game = data.game
-  console.log(store.game)
-}
-const createFailure = (error) => {
-  console.error('createFailure ran:', error)
+  // console.log('createGame data: ', data.game)
+  $('#GameResultModal').hide()
+  $('#gameboard').show()
+  events.newGame
 }
 
-const updateSuccess = (data) => {
-  console.log('updateSuccess ran')
-  store.game = data.game
-  console.log(store.game)
+const createGameFailure = (error) => {
+  console.error('createGameFailure ran:', error)
 }
-const updateFailure = (error) => {
+
+const updateGameSuccess = (data) => {
+  store.game = data.game
+  // console.log(store.game)
+}
+
+const updateGameFailure = (error) => {
   console.error('updateFailure ran:', error)
 }
 
+const getStatsSuccess = (data) => {
+  console.log('getGamesSuccess ran successfuly')
+}
+
 module.exports = {
-  createSuccess,
-  createFailure,
-  updateSuccess,
-  updateFailure
+  createGameSuccess,
+  createGameFailure,
+  updateGameSuccess,
+  updateGameFailure,
+  getStatsSuccess
 }

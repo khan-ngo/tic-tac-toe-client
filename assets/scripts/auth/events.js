@@ -5,7 +5,14 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 
+const onSignUpClick = function (event) {
+  $('#signUpModal').show()
+  $('#signInModal').hide()
+  $('#header-message').hide()
+}
+
 const onSignUp = function (event) {
+  console.log('Inside onSignUp')
   const data = getFormFields(this)
   event.preventDefault()
   api.signUp(data)
@@ -13,12 +20,12 @@ const onSignUp = function (event) {
     .catch(ui.signUpFailure)
 }
 
-const onSignIn = function (event) {
+const onSignIn = (event) => {
   event.preventDefault()
-  const data = getFormFields(this)
+  const data = getFormFields(event.target)
   api.signIn(data)
-  .then(ui.signInSuccess)
-  .catch(ui.signInFailure)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
 }
 
 const onChangePassword = function (event) {
@@ -29,18 +36,18 @@ const onChangePassword = function (event) {
   .catch(ui.changePasswordFailure)
 }
 
-const onSignOut = function (events) {
+const onSignOut = function (event) {
   event.preventDefault()
-  const data = getFormFields(this)
-  api.signOut(data)
-  .then(ui.signOutSuccess)
-  .catch(ui.signOutFailure)
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
 }
 
 const addHandlers = () => {
-  $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
-  $('#sign-out-nav').on('click', onSignOut)
+  $('#sign-up-form').on('click', onSignUpClick)
+  $('#sign-up').on('submit', onSignUp)
+  $('#sign-out').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
 }
 

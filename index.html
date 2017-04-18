@@ -11,117 +11,217 @@
         <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
       </head>
 
-
   <body class="container">
-      <!-- <div class="container-fluid"> -->
 
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="text-center text-primary">Game Projet: Tic Tac Toe</h1>
-        </div>
-<!-- ========= Authentication ============ -->
-<div class="col-xs-3 auth-column container-fluid">
-<!-- Sign-Up Authentication -->
-          <div class="row auth-box">
-            <form id="sign-up">
-              <fieldset>
-                <legend>Create New Accout</legend>
-                <input type="email" name="credentials[email]" id="sign-up-email" placeholder="your@email.com!">
-                <input type="password" name="credentials[password]" id="sign-up-password" placeholder="Password">
-                <input type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="Password">
-                <!-- <input type="submit" name="submit" value="Sign up!">SignUp</input> -->
-                <button type="submit"  name="submit" value="SignUp" class="btn btn-primary">submit</button>
-              </fieldset>
-            </form>
-          </div>
-<!-- Sign-In Authentication -->
-          <div class="row  auth-box">
-                <form id="sign-in">
-                  <fieldset class="signin-border">
-                    <legend class="signin-border">Sign in!</legend>
-                    <input type="text" name="credentials[email]" id="sign-in-email" placeholder="your@email.com!">
-                    <input type="password" name="credentials[password]" id="sign-in-password" placeholder="Password">
-                    <button type="submit"  name="submit" value="SignIn" class="btn btn-primary">submit</button>
-                  </fieldset>
-                </form>
-              </div>
-<!-- Change-Password Authentication -->
-          <div class="row auth-box">
-                <form id="change-password">
-                  <fieldset>
-                    <legend>Change Password</legend>
-                    <input type="password" name="passwords[old]" value="" placeholder="Old Password">
-                    <input type="password" name="passwords[new]" value="" placeholder="New Password">
-                    <button type="submit"  name="submit" value="Change Password" class="btn btn-primary">submit</button>
-                    </fieldset>
-                </form>
-              </div>
-<!-- Sign-Out Authentication -->
-          <div class="row auth-box">
-              <form id="sign-out">
-                <fieldset>
-                  <legend>Sign Out</legend>
-                <button type="submit"  name="submit" value="SignOut" class="btn btn-primary">submit</button>
-                </fieldset>
-              </form>
-            </div>
-  </div> <!-- auth-column -->
-<!-- ========= End Authentication ============ -->
-<!-- ============ Gameboard ============ -->
-<div class="col-xs-8 title">
-    <div class="container-fluid gameboard">
-      <div id="message" class="alert alert-success message">
-        <h4>Player "X" Starts !</h4>
-      </div>
-<div class="jumbotron tic-tac-toe-board">
+<!-- ========= NavBar ============ -->
+<div class="container vav-bar-container">
+  <nav class="navbar .navbar-fixed-top navbar-dark bg-inverse">
 
+    <!-- <span id="nav-message">Tic-Tac-Toe</span> -->
 
-  <div class="row container">
-    <div class="row">
-      <div class="game gamegrid container">
-          <div class="row">
-              <div class="col-xs-2 box square" id='s1'></div>
-              <div class="col-xs-2 box square" id='s2'></div>
-              <div class="col-xs-2 box square" id='s3'></div>
-          </div>
-          <div class="row">
-            <div class="col-xs-2 box square" id='s4'></div>
-            <div class="col-xs-2 box square" id='s5'></div>
-            <div class="col-xs-2 box square" id='s6'></div>
-          </div>
-          <div class="row">
-            <div class="col-xs-2 box square" id='s7'></div>
-            <div class="col-xs-2 box square" id='s8'></div>
-            <div class="col-xs-2 box square" id='s9'></div>
-          </div>
-        </div><!--game-->
+    <div class="nav-btns">
+      <button id="sign-out" type="submit"  name="submit" value="SignOut" class="btn btn-primary btn-sm align-center navbar-center">SignOut</button>
 
-        <div class="col-xs-6 text-center restart-box">
-          <button class="btn btn-primary" type="button" id="new-game">Start New Game</button>
-        </div>
+      <button id="change-password-modal" type="button" class="btn btn-primary btn-sm navbar-center change-pw navbar-center" data-toggle="modal" data-target="#changePasswordModal">Changing Password</button>
     </div>
+  </nav>
+</div>
+<!-- ========= END NavBar ============ -->
+
+<div id="Game-message">
+  <div>
+    <h1 id="salutaion-message" class="title_message">Welcome</h1>
+  </div>
+  <div id="header-message">
+    <h3 class="header-message">You Need to Log in to play</h3>
+  </div>
+</div>
+
+<!-- ========= Authenticat Container ============ -->
+
+
+<div id="auth-container" class="auth-box">
+
+<!-- SIGN IN -->
+<div id="signInModal" class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="form-title ">
+        <h3 class="form-header">Log In</h3>
+      </div>
+    </div>
+        <div class="auth-alert">
+          <h3 id="tempSignInError" class="form-error" ></h3>
+        </div>
+  <form id="sign-in">
+    <div class="group-form">
+     <label for="name">Email</label>
+     <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
+     <label for="name">Password</label>
+     <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+   </div>
+   <div class="padding">
+    <button type="submit" name="submit" value="SignIn" class="btn btn-primary form-button">submit</button>
+  </div>
+<div class="modal-footer"></div>
+<div id="register" class="form-subtext">
+  <p>Not Registered ?
+    <span id="sign-up-form" class="form-link">Sign Up Here</span>
+  </p>
+</div>
+<div class="modal-footer"></div>
+    </form>
+  </div>
+</div>
+
+<!-- SIGN UP -->
+<div id="signUpModal" class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="form-title mdl-card__title">
+        <h3 class="form-header">Create New Account</h3>
+      </div>
+        </div>
+        <div class="auth-alert">
+          <h3 id="tempSignUpError" class="form-error"></h3>
+        </div>
+        <div class="modal-body">
+           <form id="sign-up">
+             <div class="form-group">
+              <label for="name">Email</label>
+              <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
+              <label for="name">Password</label>
+              <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+              <label for="name">Password Confirmation</label>
+              <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Confirm Password">
+             </div>
+             <button type="submit" name="submit" value="SignUp" class="btn btn-primary form-button">submit</button>
+             <div><h5></h5></div>
+         </form>
+        </div>
+  </div>
+</div>
+
+<!-- ChangePassword Modal-->
+
+
+
+<div  id="changePasswordModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="form-title ">
+        <h3 class="form-header">Change Your Password</h3>
+      </div>
+    </div>
+
+    <div class="auth-alert">
+      <h3 id="tempChangePasswordError" class="form-error"></h3>
+    </div>
+    <div class="auth-alert">
+      <h3 id="tempChangePasswordSuccess" class="form-success"></h3>
+    </div>
+
+    <div class="modal-dialog">
+    <form id="change-password">
+      <fieldset>
+
+        <div class="form-group-pw">
+
+         <label for="name">Old Password</label>
+         <input type="password" name="passwords[old]" class="form-control" placeholder="Old Password">
+         <label for="name">New Password</label>
+         <input type="password" name="passwords[new]" class="form-control" placeholder="New Password">
+        <button id="changePasswordSubmit" type="submit" name="submit" value="Change Password" class="btn btn-primary">submit</button>
+      </div>
+
+        <button id="changePasswordModalClose" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </fieldset>
+
+    </form>
+  </div>
+      </div>
+        </div>
+  </div>
+<!-- END MODAL -->
+
+<!-- ============ Gameboard Modal ============ -->
+<div id="gameboardModal" class="modal-dialog" role="document">
+  <div id="gameboard" class="modal-content">
+    <div class="modal-header">
+      <div id="message" class="form-title">
+        <h3>Player "X" Starts !</h3>
+      </div>
+        </div>
+        <div class="auth-alert">
+          <h3 id="tempGameboardError" class="form-error"></h3>
+        </div>
+        <div class="container-fluid gameboard">
+
+          <div class="col-xs-6 col-centered">
+              <div class="row">
+                <div class="game gamegrid">
+                    <div class="row">
+                      <div class="col-xs-2 box square" id='s0'></div>
+                      <div class="col-xs-2 box square" id='s1'></div>
+                      <div class="col-xs-2 box square" id='s2'></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-2 box square" id='s3'></div>
+                      <div class="col-xs-2 box square" id='s4'></div>
+                      <div class="col-xs-2 box square" id='s5'></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-2 box square" id='s6'></div>
+                      <div class="col-xs-2 box square" id='s7'></div>
+                      <div class="col-xs-2 box square" id='s8'></div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- ============ End Gameboard ============ -->
+
+<!-- ============ Stats ============ -->
+<div id="gameResultModal" class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="form-title mdl-card__title">
+        <h3 id="GameResultModalMessage" class="form-header">Game Message</h3>
+      </div>
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Total Wins</h5>
+      </div>
+
+      <div id="game-stats-X">
+        <h3>Player X stats</h3>
+      </div>
+      <div id="game-stats-O">
+        <h3>Player O stats</h3>
+      </div>
+
+        <div class="col-xs-12 col-centered">
+    <div class="row">
+      <div class="modal-body">
+      <div class="mo">
+        <button id="new-game" type="button" class="btn btn-primary btn-lg align-left">Start New Game</button>
+
+      </div>
+      </div>
+      </div>
+    </div>
+    </div>
+      </div>
   </div>
   <!-- ============ Stats ============ -->
-  <div class="stats-col container">
-    <div class="container-fluid gameboard">
-      <div id="stats" class="alert alert-info message">
-        <h4 class="title">Game Statistics: Games Won</h4>
-      </div>
-    <ul class="nav nav-pills">
-      <li class="active">
-       <a href="#"> <span class="badge pull-right">42</span> Player "X" </a>
-      </li>
-      <li class="active">
-         <a href="#"> <span class="badge pull-right">16</span> Player "O" </a>
-      </li>
-    </ul>
-  </div>
-  </div>
-    <!-- ============ End Stats ============ -->
-  </div><!-- Jumbotron -->
 
-</div><!--col 8-->
-<!-- ============ End Gameboard ============ -->
-</div>
+
+
 </body>
 </html>
