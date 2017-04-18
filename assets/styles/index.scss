@@ -4,11 +4,19 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
 
 body {
-color: #dfdfdf;
- margin: auto;
- width: 550px;
- font-color: #000000;
- text-align: center;
+  color: #dfdfdf;
+  font-color: #000000;
+  text-align: center;
+  margin: auto;
+  width: 550px;
+}
+
+.vav-bar-container {
+  padding-top: 20px;
+}
+
+.padding {
+  padding: 10px;
 }
 
 .square {
@@ -30,19 +38,11 @@ background-color: #ff5177;
   align: center;
   border: 4px solid #fff;
   height: 2em;
-  width: 2em;
   text-align: center;
   position: relative;
+  width: 2em;
 }
 
-
-.vav-bar-container {
-  padding-top: 20px;
-}
-
-.padding {
-  padding: 10px;
-}
 
 .auth-alert {
   padding-bottom: 10px;
