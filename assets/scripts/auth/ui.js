@@ -9,7 +9,6 @@ const signUpSuccess = (data) => {
   $('#signInModal').show()
   $('#header-message').show()
   $('.authentication-stuff').show()
-  $('#gameboard').show()
   $('#header-message').html('Congratulations, you have a new account. Please log in.')
 }
 
