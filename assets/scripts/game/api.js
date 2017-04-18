@@ -1,8 +1,8 @@
-  'use strict'
+'use strict'
 
 const config = require('../config')
 const store = require('../store')
-const events = require('./events')
+// const events = require('./events')
 
 const createGame = () => {
   return $.ajax({
@@ -15,10 +15,8 @@ const createGame = () => {
 }
 
 const updateGame = (data) => {
-  const game = store.game
-
   return $.ajax({
-    url: config.apiOrigin + '/games/' + game.id,
+    url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -27,7 +25,18 @@ const updateGame = (data) => {
   })
 }
 
+const index = () => {
+  return $.ajax({
+    url: config.apiOrigin + '/games?over=true',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createGame,
-  updateGame
+  updateGame,
+  index
 }

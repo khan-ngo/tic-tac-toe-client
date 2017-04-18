@@ -16,6 +16,10 @@ curl --include --request PATCH "${API}${URL_PATH}" \
   --header "Content-Type: application/json" \
   --data '{
   "game": {
+    "cell": {
+      "index": 0,
+      "value": "X"
+    },
     "over": false
   }
 }'
