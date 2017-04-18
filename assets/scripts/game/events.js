@@ -164,6 +164,11 @@ const tiedGame = function () {
   getStats()
 }
 
+const returnToSignIn = function () {
+  $('#signInModal').show()
+  $('#signUpModal').hide()
+}
+
 const newGame = function () {
   $('#gameResultModal').hide()
   $('#gameboard').show()
@@ -220,6 +225,7 @@ const addHandlers = function () {
   $('#s6').on('click', playerMove)
   $('#s7').on('click', playerMove)
   $('#s8').on('click', playerMove)
+  $('#return-to-sign-in').on('click', returnToSignIn)
 }
 
 module.exports = {
