@@ -56,9 +56,9 @@
   <form id="sign-in">
     <div class="group-form">
      <label for="name">Email</label>
-     <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
+     <input type="text" name="credentials[email]" class="form-control" value="" placeholder="Email">
      <label for="name">Password</label>
-     <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+     <input type="password" name="credentials[password]" class="form-control" value="" placeholder="Password">
    </div>
    <div class="padding">
     <button type="submit" name="submit" value="SignIn" class="btn btn-primary form-button">submit</button>
@@ -66,7 +66,7 @@
 <div class="modal-footer"></div>
 <div id="register" class="form-subtext">
   <p>Not Registered ?
-    <span id="sign-up-form" class="form-link">Sign Up Here</span>
+    <span id="sign-up-form" class="form-link"><a>Sign Up Here</a></span>
   </p>
 </div>
 <div class="modal-footer"></div>
@@ -89,11 +89,11 @@
            <form id="sign-up">
              <div class="form-group">
               <label for="name">Email</label>
-              <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
+              <input type="text" name="credentials[email]" class="form-control" value="" placeholder="Email">
               <label for="name">Password</label>
-              <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+              <input type="password" name="credentials[password]" class="form-control" value="" placeholder="Password">
               <label for="name">Password Confirmation</label>
-              <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Confirm Password">
+              <input type="password" name="credentials[password_confirmation]" class="form-control" value="" placeholder="Confirm Password">
              </div>
              <button type="submit" name="submit" value="SignUp" class="btn btn-primary form-button">submit</button>
              <div><h5></h5></div>
@@ -102,9 +102,7 @@
   </div>
 </div>
 
-<!-- ChangePassword Modal-->
-
-
+<!-- Change Password Modal-->
 
 <div  id="changePasswordModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 
@@ -130,9 +128,9 @@
         <div class="form-group-pw">
 
          <label for="name">Old Password</label>
-         <input type="password" name="passwords[old]" class="form-control" placeholder="Old Password">
+         <input type="password" name="passwords[old]" class="form-control" value="" placeholder="Old Password">
          <label for="name">New Password</label>
-         <input type="password" name="passwords[new]" class="form-control" placeholder="New Password">
+         <input type="password" name="passwords[new]" class="form-control" value="" placeholder="New Password">
         <button id="changePasswordSubmit" type="submit" name="submit" value="Change Password" class="btn btn-primary">submit</button>
       </div>
 
