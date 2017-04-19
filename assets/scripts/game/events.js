@@ -2,6 +2,7 @@
 
 const ui = require('./ui')
 const api = require('./api')
+
 let xWinCount = 0
 let oWinCount = 0
 
@@ -31,7 +32,7 @@ const startGame = function () {
     clearBox(i)
   }
   document.winner = null
-  setMessage(document.turn + ' - It\'s your turn to start.')
+  setMessage('Player "' + document.turn + '" - It\'s your turn to start.')
 }
 
 const playerMove = function () {
@@ -40,7 +41,7 @@ const playerMove = function () {
 
 const nextMove = function (square) {
   if (document.winner != null) {
-    setMessage(document.turn + ' already won. This game is over.')
+    setMessage('Player "' + document.turn + '" already won. This game is over.')
   } else if (square.innerText === '') {
     square.innerText = document.turn
 
@@ -67,7 +68,7 @@ const nextMove = function (square) {
 
     switchTurn()
   } else if (square.innerText === 'X' || square.innerText === 'O') {
-    setMessage('Pick an empty square.')
+    setMessage('Select an empty square.')
   }
 }
 
@@ -158,15 +159,10 @@ const tiedGame = function () {
   $('#gameboard').hide()
   $('#gameResultModal').show()
 
-  setResultMessage('Tied Game !')
-  setMessage('Tied Game !')
+  setResultMessage('Cats Game - You tied!')
+  setMessage('Cats Game - You tied!')
 
   getStats()
-}
-
-const returnToSignIn = function () {
-  $('#signInModal').show()
-  $('#signUpModal').hide()
 }
 
 const newGame = function () {

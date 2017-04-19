@@ -14,6 +14,7 @@ body {
 .navbar {
   padding-top: 15px;
 }
+
 .padding {
   padding: 10px;
 }
@@ -63,11 +64,24 @@ background-color: #ff5177;
 .title {
   text-align: center;
 }
+.modal-title, .black-text {
+  color: #000;
+}
+
+.blue-text {
+  color: #0000ff;
+}
 
 .title_message, .header-message, .general-message {
   text-align: center;
   color: black;
   font-size: 25px;
+}
+
+.header-message {
+  text-align: center;
+  color: black;
+  font-size: 15px;
 }
 
 .title_message {
