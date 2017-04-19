@@ -50,7 +50,7 @@
           <h3 id="tempSignInError" class="form-error" ></h3>
         </div>
   <form id="sign-in">
-    <div class="group-form">
+    <div class="group-form black-text">
      <label for="name">Email</label>
      <input type="text" name="credentials[email]" class="form-control" value="" placeholder="Email">
      <label for="name">Password</label>
@@ -83,7 +83,7 @@
         </div>
         <div class="modal-body">
            <form id="sign-up">
-             <div class="form-group">
+             <div class="form-group blue-text">
               <label for="name">Email</label>
               <input type="text" name="credentials[email]" class="form-control" value="" placeholder="Email">
               <label for="name">Password</label>
@@ -99,13 +99,7 @@
                </p>
              </div>
              <div class="modal-footer"></div>
-             <div id="return-to-sign-in" class="form-subtext">
-               <p>Got here on accident?
-                 <span id="return-to-sign-in" class="form-link"><a>Return to Sign In</a></span>
-               </p>
-             </div>
-             <div class="modal-footer"></div>
-          </form>
+           </form>
         </div>
   </div>
 </div>
@@ -133,16 +127,18 @@
     <form id="change-password">
       <fieldset>
 
-        <div class="form-group-pw">
+        <div class="form-group-pw blue-text">
 
          <label for="name">Old Password</label>
          <input type="password" name="passwords[old]" class="form-control" value="" placeholder="Old Password">
          <label for="name">New Password</label>
          <input type="password" name="passwords[new]" class="form-control" value="" placeholder="New Password">
+
+         <div class="padding"></div>
         <button id="changePasswordSubmit" type="submit" name="submit" value="Change Password" class="btn btn-primary">submit</button>
       </div>
-
-        <button id="changePasswordModalClose" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <div class="padding"></div>
+        <button id="changePasswordModalClose" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
         </fieldset>
 
     </form>
@@ -166,25 +162,25 @@
         <div class="container-fluid gameboard">
 
           <div class="col-xs-6 col-centered">
-          <div class="row">
-            <div class="game gamegrid">
-                <div class="row">
-                  <div class="col-xs-2 box square" id='s0'></div>
-                  <div class="col-xs-2 box square" id='s1'></div>
-                  <div class="col-xs-2 box square" id='s2'></div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-2 box square" id='s3'></div>
-                  <div class="col-xs-2 box square" id='s4'></div>
-                  <div class="col-xs-2 box square" id='s5'></div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-2 box square" id='s6'></div>
-                  <div class="col-xs-2 box square" id='s7'></div>
-                  <div class="col-xs-2 box square" id='s8'></div>
-                </div>
-              </div>
-              </div>
+              <div class="row">
+                <div class="game gamegrid">
+                    <div class="row">
+                      <div class="col-xs-2 box square" id='s0'></div>
+                      <div class="col-xs-2 box square" id='s1'></div>
+                      <div class="col-xs-2 box square" id='s2'></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-2 box square" id='s3'></div>
+                      <div class="col-xs-2 box square" id='s4'></div>
+                      <div class="col-xs-2 box square" id='s5'></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-2 box square" id='s6'></div>
+                      <div class="col-xs-2 box square" id='s7'></div>
+                      <div class="col-xs-2 box square" id='s8'></div>
+                    </div>
+                  </div>
+                  </div>
                   <div class="modal-footer"></div>
           </div>
         </div>

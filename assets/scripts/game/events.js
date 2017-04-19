@@ -68,7 +68,7 @@ const nextMove = function (square) {
 
     switchTurn()
   } else if (square.innerText === 'X' || square.innerText === 'O') {
-    setMessage('Pick an empty square.')
+    setMessage('Select an empty square.')
   }
 }
 
@@ -159,15 +159,10 @@ const tiedGame = function () {
   $('#gameboard').hide()
   $('#gameResultModal').show()
 
-  setResultMessage('Tied Game !')
-  setMessage('Tied Game !')
+  setResultMessage('Cats Game - You tied!')
+  setMessage('Cats Game - You tied!')
 
   getStats()
-}
-
-const returnToSignIn = function () {
-  $('#signInModal').show()
-  $('#signUpModal').hide()
 }
 
 const newGame = function () {
