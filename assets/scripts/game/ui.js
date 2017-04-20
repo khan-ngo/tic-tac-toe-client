@@ -25,7 +25,13 @@ const updateGameFailure = (error) => {
 }
 
 const getStatsSuccess = (data) => {
-  console.log('getGamesSuccess ran successfuly')
+  const gameCount = data.games.length
+  $('#playerX').html(store.user.email)
+  $('#statnum').html(gameCount)
+}
+
+const getStatsFailure = () => {
+  console.error('getGamesFailure failed')
 }
 
 module.exports = {
@@ -33,5 +39,6 @@ module.exports = {
   createGameFailure,
   updateGameSuccess,
   updateGameFailure,
-  getStatsSuccess
+  getStatsSuccess,
+  getStatsFailure
 }
