@@ -141,7 +141,9 @@ const winnerFound = function () {
   // send update request to api for game
   api.updateGame(data)
 
-  getStats()
+  api.index()
+    .then(ui.getStatsSuccess)
+    .catch(ui.getStatsSuccess)
 }
 
 const printWinStats = function () {
@@ -162,7 +164,9 @@ const tiedGame = function () {
   setResultMessage('Cats Game - You tied!')
   setMessage('Cats Game - You tied!')
 
-  getStats()
+  api.index()
+    .then(ui.getStatsSuccess)
+    .catch(ui.getStatsFailure)
 }
 
 const newGame = function () {
@@ -199,15 +203,6 @@ const getBox = function (number) {
 
 const clearBox = function (number) {
   document.getElementById('s' + number).innerText = ''
-}
-
-const getStats = function () {
-  // prevent board from refreshing
-  event.preventDefault()
-  // run api call to get the statistics
-  api.index()
-    .then(ui.getGamesSuccess)
-  //  .catch(ui.getGamesFailure)
 }
 
 const returnToLogIn = function () {

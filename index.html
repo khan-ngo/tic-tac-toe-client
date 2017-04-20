@@ -26,6 +26,7 @@
     </div>
   </nav>
 </div>
+
 <!-- ========= END NavBar ============ -->
 
 <div id="Game-message">
@@ -62,7 +63,7 @@
 <div class="modal-footer"></div>
 <div id="register" class="form-subtext">
   <p>Not Registered ?
-    <span id="sign-up-form" class="form-link"><a>Sign Up Here</a></span>
+    <span id="sign-up-form" class="form-link"><a href='#'>Sign Up Here</a></span>
   </p>
 </div>
 <div class="modal-footer"></div>
@@ -95,7 +96,7 @@
              <div class="modal-footer"></div>
              <div class="form-subtext">
                <p>Did you get here on accident ?
-                 <span id="return-to-log-in" class="form-link"><a>Return to LogIn</a></span>
+                 <span id="return-to-log-in" class="form-link"><a href='#'>Return to LogIn</a></span>
                </p>
              </div>
              <div class="modal-footer"></div>
@@ -160,7 +161,6 @@
           <h3 id="tempGameboardError" class="form-error"></h3>
         </div>
         <div class="container-fluid gameboard">
-
           <div class="col-xs-6 col-centered">
               <div class="row">
                 <div class="game gamegrid">
@@ -181,7 +181,7 @@
                     </div>
                   </div>
                   </div>
-                  <div class="modal-footer"></div>
+                <div class="modal-footer"></div>
           </div>
         </div>
       </div>
@@ -197,7 +197,8 @@
       </div>
 
       <div class="modal-header">
-        <h4 class="modal-title">Total Wins</h4>
+        <div class="game-history">
+          <span id='playerX'></span> , you completed <span id='statnum'></span> games on record !</div>
       </div>
 
       <div id="game-stats-X" class="general-message">
