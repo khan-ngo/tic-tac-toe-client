@@ -5,36 +5,42 @@ const gameEvents = require('../game/events.js')
 
 const signUpSuccess = (data) => {
   $('#signUpModal').hide()
-  $('#header-message').hide()
   $('#signInModal').show()
-  $('#header-message').show()
   $('.authentication-stuff').show()
-  $('#header-message').html('Congratulations, you have a new account. Please log in.')
+  $('.header-message').show().html('Congratulations, you have a new account.')
+  $('.sign-in-msg').html('Log in with your new account to Play.')
+  $('#sign-in').trigger('reset')
 }
 
 const signUpFailure = (error) => {
-  $('#tempSignUpError').html('Something is wrong. Please try to again.')
-  console.log('signIn failed ran data is:', error)
+  $('#signUpError').show().html('Something\'s wrong. Try again.')
+  setTimeout(function () {
+    $('#signUpError').fadeOut(600)
+  }, 1000)
+  $('#sign-up').trigger('reset')
+  console.error('signIn failed ran data is:', error)
 }
 
 const signInSuccess = (data) => {
   store.user = data.user
-  console.log(store.user)
-
+  // console.log(store.user)
   $('#signUpModal').hide()
-  $('#header-message').hide()
+  $('.header-message').hide()
   $('#signInModal').hide()
-  $('#header-message').show()
   $('.authentication-stuff').show()
   $('#gameboard').show()
   $('#salutaion-message').html('Tic Tac Toe')
-  $('.header-message').html(store.user.email + ' is Player "X"')
+  $('.nav-message').html(store.user.email + ' is Player "X"')
   gameEvents.newGame()
   $('#gameboard').show()
 }
 
 const signInFailure = (error) => {
-  $('#tempSignInError').html('Something is wrong. Please try to again.')
+  $('#signInError').show().html('Something\'s wrong with your login. Try again.')
+  setTimeout(function () {
+    $('#signInError').fadeOut(600)
+  }, 1000)
+  $('#sign-in').trigger('reset')
   console.error('signIn failed ran data is:', error)
 }
 
@@ -46,24 +52,34 @@ const signOutSuccess = () => {
   $('#salutaion-message').show()
   $('#salutaion-message').html('Good-Bye')
   $('.header-message').html('Thank you for playing. Come again soon.')
+  $('#change-password').trigger('reset')
 }
 
 const signOutFailure = (error) => {
+  $('#change-password').trigger('reset')
   console.error('signOutFailure ran:', error)
 }
 
 const changePasswordSuccess = () => {
-  console.log('changePasswordSuccess ran')
-  $('#tempChangePasswordSuccess').html('Password changed! Close Modal to continue.')
-  $('#tempChangePasswordError').hide()
+  $('#ChangePasswordSuccess').show().html('Password changed! Close Modal to continue.')
+  $('#ChangePasswordError').hide()
   $('.form-group-pw').hide()
-  $('#top-message').html(store.user.email + ' - You successfully Changed your password.')
+  $('#top-message').show().html(store.user.email + ' - You successfully Changed your password.')
 }
 
 const changePasswordFailure = (error) => {
-  $('#tempChangePasswordError').html('Somthings wrong. Check your password and try again.')
+  $('#ChangePasswordError').show().html('Check your password and try again.')
+  setTimeout(function () {
+    $('#ChangePasswordError').fadeOut(600)
+  }, 1000)
+  $('#change-password').trigger('reset')
+
   console.error('changePasswordFailure ran:', error)
 }
+
+setTimeout(function (id) {
+  $(id).fadeOut(600)
+}, 1000)
 
 module.exports = {
   signUpSuccess,
