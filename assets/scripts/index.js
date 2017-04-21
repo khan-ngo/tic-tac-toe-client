@@ -30,4 +30,5 @@ $(() => {
   $('#Game-message').show()
   $('#signUpModal').hide()
   $('#signInModal').show()
+  $('#sign-in').trigger('reset')
 })

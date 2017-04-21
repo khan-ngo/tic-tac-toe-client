@@ -130,6 +130,7 @@ const winnerFound = function () {
   } else {
     oWinCount++
   }
+
   printWinStats()
 
   // create data structure expected by api
@@ -140,7 +141,6 @@ const winnerFound = function () {
   }
   // send update request to api for game
   api.updateGame(data)
-
   api.index()
     .then(ui.getStatsSuccess)
     .catch(ui.getStatsSuccess)
@@ -149,10 +149,6 @@ const winnerFound = function () {
 const printWinStats = function () {
   setResultMessage('Player "' + document.turn + '" won!')
   setMessage('Player "' + document.turn + '" won!')
-
-  // console.log('Player "O" has ' + oWinCount + ' wins')
-  // console.log('Player "X" has ' + xWinCount + ' wins')
-
   setWinStatO('Player "O" has ' + oWinCount + ' wins')
   setWinStatX('Player "X" has ' + xWinCount + ' wins')
 }
@@ -207,6 +203,7 @@ const clearBox = function (number) {
 
 const returnToLogIn = function () {
   $('#signUpModal').hide()
+  $('sign-in').trigger('reset')
   $('#signInModal').show()
 }
 

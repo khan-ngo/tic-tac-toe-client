@@ -17,12 +17,15 @@
 <div class="container vav-bar-container">
   <nav class="navbar navbar-dark bg-inverse">
 
-    <!-- <span id="nav-message">Tic-Tac-Toe</span> -->
 
     <div class="nav-btns">
       <button id="sign-out" type="submit"  name="submit" value="SignOut" class="btn btn-primary btn-sm align-center navbar-center">SignOut</button>
 
-      <button id="change-password-modal" type="button" class="btn btn-primary btn-sm navbar-center change-pw navbar-center" data-toggle="modal" data-target="#changePasswordModal">Changing Password</button>
+      <button id="change-password-modal" type="button" class="btn btn-primary btn-sm navbar-center change-pw" data-toggle="modal" data-target="#changePasswordModal">Changing Password</button>
+
+      <!-- <span id="nav-message" class="navbar-center">Tic-Tac-Toe</span> -->
+
+        <span id="nav-message" class="nav-message navbar-right"><span>
     </div>
   </nav>
 </div>
@@ -44,14 +47,15 @@
   <div class="modal-content">
     <div class="modal-header">
       <div class="form-title ">
-        <h3 class="form-header">Log In</h3>
+        <h3 class="sign-in-msg form-header">Please log in to play </h3>
       </div>
     </div>
         <div class="auth-alert">
-          <h3 id="tempSignInError" class="form-error" ></h3>
+          <h3 id="signInError" class="form-error" ></h3>
         </div>
+        <div class="modal-body">
   <form id="sign-in">
-    <div class="group-form black-text">
+    <div class="form-group blue-text">
      <label for="name">Email</label>
      <input type="text" name="credentials[email]" class="form-control" value="" placeholder="Email">
      <label for="name">Password</label>
@@ -61,13 +65,14 @@
     <button type="submit" name="submit" value="SignIn" class="btn btn-primary form-button">submit</button>
   </div>
 <div class="modal-footer"></div>
-<div id="register" class="form-subtext">
+<div id="register" class="form-subtext register">
   <p>Not Registered ?
     <span id="sign-up-form" class="form-link"><a href='#'>Sign Up Here</a></span>
   </p>
 </div>
 <div class="modal-footer"></div>
     </form>
+</div>
   </div>
 </div>
 
@@ -80,7 +85,7 @@
       </div>
         </div>
         <div class="auth-alert">
-          <h3 id="tempSignUpError" class="form-error"></h3>
+          <h3 id="signUpError" class="form-error"></h3>
         </div>
         <div class="modal-body">
            <form id="sign-up">
@@ -106,30 +111,24 @@
 </div>
 
 <!-- Change Password Modal-->
-
-<div  id="changePasswordModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div id="changePasswordModal" class="modal fade modal-dialog" role="document">
 
   <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
-      <div class="form-title ">
+      <div class="form-title mdl-card__title">
         <h3 class="form-header">Change Your Password</h3>
       </div>
     </div>
 
     <div class="auth-alert">
-      <h3 id="tempChangePasswordError" class="form-error"></h3>
+      <h3 id="ChangePasswordError" class="form-error"></h3>
+      <h3 id="ChangePasswordSuccess" class="form-success"></h3>
     </div>
-    <div class="auth-alert">
-      <h3 id="tempChangePasswordSuccess" class="form-success"></h3>
-    </div>
-
-    <div class="modal-dialog">
+    <div class="modal-body">
     <form id="change-password">
       <fieldset>
-
         <div class="form-group-pw blue-text">
-
          <label for="name">Old Password</label>
          <input type="password" name="passwords[old]" class="form-control" value="" placeholder="Old Password">
          <label for="name">New Password</label>
@@ -141,7 +140,6 @@
       <div class="padding"></div>
         <button id="changePasswordModalClose" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
         </fieldset>
-
     </form>
   </div>
       </div>
@@ -195,27 +193,23 @@
       <div class="form-title mdl-card__title">
         <h3 id="GameResultModalMessage" class="form-header general-message">Game Message</h3>
       </div>
+      <div class="modal-body">
 
       <div class="modal-header">
-        <div class="game-history">
-          <span id='playerX'></span> , you completed <span id='statnum'></span> games on record !</div>
+        <div class="game-history align-center">
+          <span id='playerX'></span> , you completed <span id='game-count'></span> games on record !</div>
       </div>
-
+      <br>
       <div id="game-stats-X" class="general-message">
-        <h3>Player X stats</h3>
+        <h3></h3>
       </div>
       <div id="game-stats-O" class="general-message">
-        <h3>Player O stats</h3>
+        <h3></h3>
       </div>
 
-        <div class="col-xs-12 col-centered">
-    <div class="row">
-      <div class="modal-body">
-      <div class="mo">
-        <button id="new-game" type="button" class="btn btn-primary btn-lg align-left">Start New Game</button>
-
-      </div>
-      </div>
+      <div class="new-game-button">
+        <button id="new-game" type="button" class="btn btn-primary btn-lg">Start New Game</button>
+    </div>
       </div>
     </div>
     </div>

@@ -7,12 +7,11 @@ const ui = require('./ui')
 
 const onSignUpClick = function (event) {
   $('#signUpModal').show()
+  $('#sign-up').trigger('reset')
   $('#signInModal').hide()
-  $('#header-message').hide()
 }
 
 const onSignUp = function (event) {
-  console.log('Inside onSignUp')
   const data = getFormFields(this)
   event.preventDefault()
   api.signUp(data)

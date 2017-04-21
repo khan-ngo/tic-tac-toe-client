@@ -27,7 +27,7 @@ const updateGameFailure = (error) => {
 const getStatsSuccess = (data) => {
   const gameCount = data.games.length
   $('#playerX').html(store.user.email)
-  $('#statnum').html(gameCount)
+  $('#game-count').html(gameCount)
 }
 
 const getStatsFailure = () => {
