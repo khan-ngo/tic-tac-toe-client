@@ -51,7 +51,7 @@ const signOutSuccess = () => {
   $('#gameResultModal').hide()
   $('#salutaion-message').show()
   $('#salutaion-message').html('Good-Bye')
-  $('.header-message').html('Thank you for playing. Come again soon.')
+  $('.header-message').show().html('Thank you for playing. Come back soon.')
   $('#change-password').trigger('reset')
 }
 
