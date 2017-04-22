@@ -155,7 +155,7 @@ const printWinStats = function () {
 }
 
 const tiedGame = function () {
-  // $('#gameboard').show()
+  $('#gameboard').show()
   $('#gameResultModal').show()
 
   setResultMessage('Cats Game - You tied!')
