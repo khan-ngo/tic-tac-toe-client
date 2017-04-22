@@ -1,5 +1,8 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
+# To Play
+
+https://kqngo.github.io/tic-tac-toe-client
 
 ## Installation
 
@@ -13,7 +16,7 @@
 
 # The Task
 
-Utilizing materials taught in a short intensive span of two weeks and two days at General Assembly-WDI, I have been tasked to write my first computer program, incorporating what I have learned so far in git, github, atom, HTLM, JavaScript (ES6), CSS, SCSS, SASS, JQuery, and AJAX using Rails backend, and grunt frontend webserver, to build a tic-tac-toe Single Page Application.  (This run on sentence is an attempt at capturing my anxiety and fear of the unknown as I trudge forward.)
+Utilizing materials taught in a short intensive span of two weeks and two days at General Assembly-WDI, I have been tasked to write my first computer program, incorporating what I have learned so far in git, github, atom, HTLM, JavaScript (ES6), CSS, SCSS, SASS, JQuery, AJAX, and json using Rails backend, and grunt frontend webserver, to build a tic-tac-toe Single Page Application.  (This run on sentence is an attempt at capturing my anxiety and fear of the unknown as I trudge forward.)
 
 Given 3 days of class time to deliver the following: https://kqngo.github.io/tic-tac-toe-client
 
