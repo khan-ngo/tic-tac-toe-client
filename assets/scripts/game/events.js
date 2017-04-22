@@ -207,6 +207,10 @@ const returnToLogIn = function () {
   $('#signInModal').show()
 }
 
+const onChangePassword = function () {
+  $('#top-message').hide()
+}
+
 const addHandlers = function () {
   $('#new-game').on('click', OnNewGame)
   $('#s0').on('click', playerMove)
@@ -219,6 +223,7 @@ const addHandlers = function () {
   $('#s7').on('click', playerMove)
   $('#s8').on('click', playerMove)
   $('#return-to-log-in').on('click', returnToLogIn)
+  $('#changePasswordModalClose').on('click', onChangePassword)
 }
 
 module.exports = {
