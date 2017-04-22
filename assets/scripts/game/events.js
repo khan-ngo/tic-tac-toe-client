@@ -147,14 +147,15 @@ const winnerFound = function () {
 }
 
 const printWinStats = function () {
+  setMessage('Great Job, Player "' + document.turn + '" !')
+
   setResultMessage('Player "' + document.turn + '" won!')
-  setMessage('Player "' + document.turn + '" won!')
   setWinStatO('Player "O" has ' + oWinCount + ' wins')
   setWinStatX('Player "X" has ' + xWinCount + ' wins')
 }
 
 const tiedGame = function () {
-  $('#gameboard').hide()
+  // $('#gameboard').show()
   $('#gameResultModal').show()
 
   setResultMessage('Cats Game - You tied!')
