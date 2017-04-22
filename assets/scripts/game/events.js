@@ -41,7 +41,7 @@ const playerMove = function () {
 
 const nextMove = function (square) {
   if (document.winner != null) {
-    setMessage('Player "' + document.turn + '" already won. This game is over.')
+    setMessage('Player "' + document.turn + '" already won. Click "Start New Game" below.')
   } else if (square.innerText === '') {
     square.innerText = document.turn
 
@@ -122,7 +122,7 @@ const checkGameOver = function () {
 }
 
 const winnerFound = function () {
-  $('#gameboard').hide()
+  $('#gameboard').show()
   $('#gameResultModal').show()
 
   if (document.turn === 'X') {
