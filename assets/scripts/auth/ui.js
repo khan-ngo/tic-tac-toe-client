@@ -15,7 +15,7 @@ const signUpSuccess = (data) => {
 const signUpFailure = (error) => {
   $('#signUpError').show().html('Something\'s wrong. Try again.')
   setTimeout(function () {
-    $('#signUpError').fadeOut(600)
+    $('#signUpError').fadeOut(700)
   }, 1000)
   $('#sign-up').trigger('reset')
   console.error('signIn failed ran data is:', error)
@@ -32,13 +32,15 @@ const signInSuccess = (data) => {
   $('#salutaion-message').html('Tic Tac Toe')
   $('.nav-message').html(store.user.email + ' is Player "X"')
   gameEvents.newGame()
+  $('#ChangePasswordSuccess').hide()
+  $('#change-password').trigger('reset')
   $('#gameboard').show()
 }
 
 const signInFailure = (error) => {
   $('#signInError').show().html('Something\'s wrong with your login. Try again.')
   setTimeout(function () {
-    $('#signInError').fadeOut(600)
+    $('#signInError').fadeOut(700)
   }, 1000)
   $('#sign-in').trigger('reset')
   console.error('signIn failed ran data is:', error)
@@ -52,7 +54,9 @@ const signOutSuccess = () => {
   $('#salutaion-message').show()
   $('#salutaion-message').html('Good-Bye')
   $('.header-message').show().html('Thank you for playing. Come back soon.')
-  $('#change-password').trigger('reset')
+  $('#signUpModal').hide()
+  $('#signInModal').show()
+  $('#signInModal').trigger('reset')
 }
 
 const signOutFailure = (error) => {
@@ -61,25 +65,22 @@ const signOutFailure = (error) => {
 }
 
 const changePasswordSuccess = () => {
-  $('#ChangePasswordSuccess').show().html('Password changed! Close Modal to continue.')
   $('#ChangePasswordError').hide()
-  $('.form-group-pw').hide()
-  $('#top-message').show().html(store.user.email + ' - You successfully Changed your password.')
+  $('#ChangePasswordSuccess').show().html('Password changed! Close Modal to continue.')
+  setTimeout(function () {
+    $('#ChangePasswordSuccess').fadeOut(2000)
+  }, 2000)
+  $('#change-password').trigger('reset')
 }
 
 const changePasswordFailure = (error) => {
   $('#ChangePasswordError').show().html('Check your password and try again.')
   setTimeout(function () {
-    $('#ChangePasswordError').fadeOut(600)
+    $('#ChangePasswordError').fadeOut(700)
   }, 1000)
   $('#change-password').trigger('reset')
-
   console.error('changePasswordFailure ran:', error)
 }
-
-setTimeout(function (id) {
-  $(id).fadeOut(600)
-}, 1000)
 
 module.exports = {
   signUpSuccess,
