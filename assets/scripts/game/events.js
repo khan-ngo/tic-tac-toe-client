@@ -8,6 +8,7 @@ let oWinCount = 0
 
 document.turn = 'X'
 document.winner = null
+let gameOver = null
 
 const setMessage = function (msg) {
   document.getElementById('message').innerText = msg
@@ -42,6 +43,8 @@ const playerMove = function () {
 const nextMove = function (square) {
   if (document.winner != null) {
     setMessage('Player "' + document.turn + '" already won. Click "Start New Game" below.')
+  } else if ((checkGameOver())) {
+    setMessage('Click "Start New Game" below.')
   } else if (square.innerText === '') {
     square.innerText = document.turn
 
@@ -155,7 +158,9 @@ const printWinStats = function () {
 }
 
 const tiedGame = function () {
-  $('#gameboard').show()
+  gameOver = "gameOver"
+
+  // $('#gameboard').hide()
   $('#gameResultModal').show()
 
   setResultMessage('Cats Game - You tied!')
@@ -167,6 +172,8 @@ const tiedGame = function () {
 }
 
 const newGame = function () {
+  gameOver = null
+
   $('#gameResultModal').hide()
   $('#gameboard').show()
   $('.nav-btns').show()
