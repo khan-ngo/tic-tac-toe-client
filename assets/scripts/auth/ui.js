@@ -28,15 +28,14 @@ const signInSuccess = (data) => {
   $('.header-message').hide()
   $('#signInModal').hide()
   $('.authentication-stuff').show()
+  $('#gameboard').show()
   $('#salutaion-message').html('Tic Tac Toe')
   $('.nav-message').html(store.user.email + ' is Player "X"')
+  gameEvents.startGame()
+  gameEvents.newGame()
   $('#ChangePasswordSuccess').hide()
   $('#change-password').trigger('reset')
   $('#gameboard').show()
-  $('.nav-btns').show()
-
-  gameEvents.startGame()
-  gameEvents.newGame()
 }
 
 const signInFailure = (error) => {
@@ -50,6 +49,8 @@ const signInFailure = (error) => {
 
 const signOutSuccess = () => {
   store.user = null
+  // gameEvents.clearboard()
+
   $('#gameboard').hide()
   $('.nav-btns').hide()
   $('#gameResultModal').hide()
@@ -59,8 +60,6 @@ const signOutSuccess = () => {
   $('#signUpModal').hide()
   $('#signInModal').show()
   $('#signInModal').trigger('reset')
-  $('#sign-in').trigger('reset')
-  $('#sign-up').trigger('reset')
 }
 
 const signOutFailure = (error) => {

@@ -8,6 +8,7 @@ let oWinCount = 0
 
 document.turn = 'X'
 document.winner = null
+let gameOver = null
 
 const setMessage = function (msg) {
   document.getElementById('message').innerText = msg
@@ -27,10 +28,14 @@ const setWinStatO = function (msg) {
 
 setMessage('Player "' + document.turn + '" - It\'s your turn to start.')
 
-const startGame = function () {
+const clearboard = function () {
   for (let i = 0; i <= 8; i++) {
     clearBox(i)
   }
+}
+
+const startGame = function () {
+  clearboard()
   document.winner = null
   setMessage('Player "' + document.turn + '" - It\'s your turn to start.')
 }
@@ -172,6 +177,7 @@ const tiedGame = function () {
 
 const newGame = function () {
   gameOver = null
+
   $('#gameResultModal').hide()
   $('#gameboard').show()
   $('.nav-btns').show()
@@ -183,6 +189,7 @@ const newGame = function () {
 const OnNewGame = function (event) {
   event.preventDefault()
   // const data = getFormFields(this)
+
   startGame()
   newGame()
 }
