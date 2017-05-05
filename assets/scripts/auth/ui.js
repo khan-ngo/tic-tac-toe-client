@@ -32,6 +32,9 @@ const signInSuccess = (data) => {
   $('.nav-message').html(store.user.email + ' is Player "X"')
   $('#ChangePasswordSuccess').hide()
   $('#change-password').trigger('reset')
+  $('#gameboard').show()
+  $('.nav-btns').show()
+
   gameEvents.startGame()
   gameEvents.newGame()
 }
