@@ -31,7 +31,7 @@ const signInSuccess = (data) => {
   $('#gameboard').show()
   $('#salutaion-message').html('Tic Tac Toe')
   $('.nav-message').html(store.user.email + ' is Player "X"')
-  gameEvents.startGame()
+  // gameEvents.startGame()
   gameEvents.newGame()
   $('#ChangePasswordSuccess').hide()
   $('#change-password').trigger('reset')
