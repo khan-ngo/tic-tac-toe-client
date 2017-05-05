@@ -8,7 +8,6 @@ let oWinCount = 0
 
 document.turn = 'X'
 document.winner = null
-let gameOver = null
 
 const setMessage = function (msg) {
   document.getElementById('message').innerText = msg
@@ -173,7 +172,6 @@ const tiedGame = function () {
 
 const newGame = function () {
   gameOver = null
-
   $('#gameResultModal').hide()
   $('#gameboard').show()
   $('.nav-btns').show()
@@ -185,7 +183,6 @@ const newGame = function () {
 const OnNewGame = function (event) {
   event.preventDefault()
   // const data = getFormFields(this)
-
   startGame()
   newGame()
 }
