@@ -31,8 +31,8 @@ const signInSuccess = (data) => {
   $('#gameboard').show()
   $('#salutaion-message').html('Tic Tac Toe')
   $('.nav-message').html(store.user.email + ' is Player "X"')
-  gameEvents.startGame()
   gameEvents.newGame()
+  gameEvents.initializeGame()
   $('#ChangePasswordSuccess').hide()
   $('#change-password').trigger('reset')
   $('#gameboard').show()
@@ -45,26 +45,6 @@ const signInFailure = (error) => {
   }, 1000)
   $('#sign-in').trigger('reset')
   console.error('signIn failed ran data is:', error)
-}
-
-const signOutSuccess = () => {
-  store.user = null
-  // gameEvents.clearboard()
-
-  $('#gameboard').hide()
-  $('.nav-btns').hide()
-  $('#gameResultModal').hide()
-  $('#salutaion-message').show()
-  $('#salutaion-message').html('Good-Bye')
-  $('.header-message').show().html('Thank you for playing. Come back soon.')
-  $('#signUpModal').hide()
-  $('#signInModal').show()
-  $('#signInModal').trigger('reset')
-}
-
-const signOutFailure = (error) => {
-  $('#change-password').trigger('reset')
-  console.error('signOutFailure ran:', error)
 }
 
 const changePasswordSuccess = () => {
@@ -83,6 +63,25 @@ const changePasswordFailure = (error) => {
   }, 1000)
   $('#change-password').trigger('reset')
   console.error('changePasswordFailure ran:', error)
+}
+
+const signOutSuccess = () => {
+  store.user = null
+  gameEvents.initalizeGameboard()
+  $('#gameboard').hide()
+  $('.nav-btns').hide()
+  $('#gameResultModal').hide()
+  $('#salutaion-message').show()
+  $('#salutaion-message').html('Good-Bye')
+  $('.header-message').show().html('Thank you for playing. Come back soon.')
+  $('#signUpModal').hide()
+  $('#signInModal').show()
+  $('#signInModal').trigger('reset')
+}
+
+const signOutFailure = (error) => {
+  $('#change-password').trigger('reset')
+  console.error('signOutFailure ran:', error)
 }
 
 module.exports = {
