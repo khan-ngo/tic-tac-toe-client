@@ -32,9 +32,13 @@ const clearboard = function () {
   for (let i = 0; i <= 8; i++) {
     clearBox(i)
   }
+  document.turn = 'X'
+  document.winner = null
+  xWinCount = 0
+  oWinCount = 0
 }
 
-const startGame = function () {
+const initalizeGameboard = function () {
   clearboard()
   document.winner = null
   setMessage('Player "' + document.turn + '" - It\'s your turn to start.')
@@ -162,7 +166,7 @@ const printWinStats = function () {
 }
 
 const tiedGame = function () {
-  gameOver = "gameOver"
+  gameOver = 'gameOver'
 
   // $('#gameboard').hide()
   $('#gameResultModal').show()
@@ -190,7 +194,7 @@ const OnNewGame = function (event) {
   event.preventDefault()
   // const data = getFormFields(this)
 
-  startGame()
+  initalizeGameboard()
   newGame()
 }
 
@@ -240,7 +244,7 @@ const addHandlers = function () {
 
 module.exports = {
   addHandlers,
-  startGame,
+  initalizeGameboard,
   OnNewGame,
   newGame
 }
