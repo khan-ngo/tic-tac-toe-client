@@ -57,9 +57,9 @@
   <form id="sign-in">
     <div class="form-group blue-text">
      <label for="name">Email</label>
-     <input type="text" name="credentials[email]" class="form-control" value="" placeholder="Email">
+     <input type="text" name="credentials[email]" class="form-control"  placeholder="Email" required="required">
      <label for="name">Password</label>
-     <input type="password" name="credentials[password]" class="form-control" value="" placeholder="Password">
+     <input type="password" name="credentials[password]" class="form-control" placeholder="Password" required="required">
    </div>
    <div class="padding">
     <button type="submit" name="submit" value="SignIn" class="btn btn-primary form-button">submit</button>
@@ -91,11 +91,11 @@
            <form id="sign-up">
              <div class="form-group blue-text">
               <label for="name">Email</label>
-              <input type="text" name="credentials[email]" class="form-control" value="" placeholder="Email">
+              <input type="text" name="credentials[email]" class="form-control"  placeholder="Email" required="required">
               <label for="name">Password</label>
-              <input type="password" name="credentials[password]" class="form-control" value="" placeholder="Password">
+              <input type="password" name="credentials[password]" class="form-control"  placeholder="Password" required="required">
               <label for="name">Password Confirmation</label>
-              <input type="password" name="credentials[password_confirmation]" class="form-control" value="" placeholder="Confirm Password">
+              <input type="password" name="credentials[password_confirmation]" class="form-control"  placeholder="Confirm Password" required="required">
              </div>
              <button type="submit" name="submit" value="SignUp" class="btn btn-primary form-button">submit</button>
              <div class="modal-footer"></div>
@@ -130,9 +130,9 @@
       <fieldset>
         <div class="form-group-pw blue-text">
          <label for="name">Old Password</label>
-         <input type="password" name="passwords[old]" class="form-control" value="" placeholder="Old Password">
+         <input type="password" name="passwords[old]" class="form-control"  placeholder="Old Password" required="required">
          <label for="name">New Password</label>
-         <input type="password" name="passwords[new]" class="form-control" value="" placeholder="New Password">
+         <input type="password" name="passwords[new]" class="form-control"  placeholder="New Password" required="required">
 
          <div class="padding"></div>
         <button id="changePasswordSubmit" type="submit" name="submit" value="Change Password" class="btn btn-primary">submit</button>
