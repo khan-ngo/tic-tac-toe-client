@@ -11,9 +11,24 @@ $(() => {
   setAPIOrigin(location, config)
   authEvents.addHandlers()
   gameEvents.addHandlers()
-  // gameLogic.logicHandler()
-  // $('#new-game').on('submit', gameLogic.newGame)
-  // $('#play-again').on('submit', gameLogic.playAgain)
+  $('#add-task-modal').on('hidden.bs.modal', function () {
+    $(this).find('input,textarea,select').val('').end()
+  })
+  $('#changePasswordModal').on('hidden.bs.modal', function () {
+    $(this).find('input,textarea,select').val('').end()
+    $('#ChangePasswordError').hide()
+    $('#ChangePasswordSuccess').hide()
+    $('.form-group-pw').show()
+  })
+  $('#signUpModal').on('hidden.bs.modal', function () {
+    $(this).find('input,textarea,select').val('').end()
+    $('#signInError').hide()
+  })
+  $('#signInModal').on('hidden.bs.modal', function () {
+    $(this).find('input,textarea,select').val('').end()
+    $('#signUpError').hide()
+    $('#signUpSuccess').hide()
+  })
 })
 
 // use require with a reference to bundle the file and use it in this file
@@ -24,6 +39,7 @@ require('./example')
 
 // Initialize Splash Page
 $(() => {
+  $('.form-control').val('')
   $('#gameboard').hide()
   $('#gameResultModal').hide()
   $('.nav-btns').hide()

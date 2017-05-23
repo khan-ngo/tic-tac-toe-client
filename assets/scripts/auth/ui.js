@@ -4,8 +4,11 @@ const store = require('../store.js')
 const gameEvents = require('../game/events.js')
 
 const signUpSuccess = (data) => {
+  $('.form-control').val('')
+
   $('#signUpModal').hide()
   $('#signInModal').show()
+  $('.form-control').val('')
   $('.authentication-stuff').show()
   $('.header-message').show().html('Congratulations, you have a new account.')
   $('.sign-in-msg').html('Log in with your new account to Play.')
@@ -13,6 +16,8 @@ const signUpSuccess = (data) => {
 }
 
 const signUpFailure = (error) => {
+  $('.form-control').val('')
+
   $('#signUpError').show().html('Something\'s wrong. Try again.')
   setTimeout(function () {
     $('#signUpError').fadeOut(700)
@@ -24,6 +29,8 @@ const signUpFailure = (error) => {
 const signInSuccess = (data) => {
   store.user = data.user
   // console.log(store.user)
+  $('.form-control').val('')
+
   $('#signUpModal').hide()
   $('.header-message').hide()
   $('#signInModal').hide()
@@ -31,14 +38,16 @@ const signInSuccess = (data) => {
   $('#gameboard').show()
   $('#salutaion-message').html('Tic Tac Toe')
   $('.nav-message').html(store.user.email + ' is Player "X"')
+  gameEvents.initalizeGameboard()
   gameEvents.newGame()
-  gameEvents.initializeGame()
   $('#ChangePasswordSuccess').hide()
   $('#change-password').trigger('reset')
   $('#gameboard').show()
 }
 
 const signInFailure = (error) => {
+  $('.form-control').val('')
+
   $('#signInError').show().html('Something\'s wrong with your login. Try again.')
   setTimeout(function () {
     $('#signInError').fadeOut(700)
@@ -48,6 +57,8 @@ const signInFailure = (error) => {
 }
 
 const changePasswordSuccess = () => {
+  $('.form-control').val('')
+
   $('#ChangePasswordError').hide()
   $('#ChangePasswordSuccess').show().html('Password changed! Close Modal to continue.')
   setTimeout(function () {
@@ -57,6 +68,8 @@ const changePasswordSuccess = () => {
 }
 
 const changePasswordFailure = (error) => {
+  $('.form-control').val('')
+
   $('#ChangePasswordError').show().html('Check your password and try again.')
   setTimeout(function () {
     $('#ChangePasswordError').fadeOut(700)
@@ -68,6 +81,7 @@ const changePasswordFailure = (error) => {
 const signOutSuccess = () => {
   store.user = null
   gameEvents.initalizeGameboard()
+  $('.form-control').val('')
   $('#gameboard').hide()
   $('.nav-btns').hide()
   $('#gameResultModal').hide()
@@ -77,6 +91,7 @@ const signOutSuccess = () => {
   $('#signUpModal').hide()
   $('#signInModal').show()
   $('#signInModal').trigger('reset')
+  gameEvents.restStats()
 }
 
 const signOutFailure = (error) => {

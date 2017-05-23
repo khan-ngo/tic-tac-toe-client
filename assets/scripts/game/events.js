@@ -32,6 +32,9 @@ const clearboard = function () {
   for (let i = 0; i <= 8; i++) {
     clearBox(i)
   }
+}
+
+const restStats = function () {
   document.turn = 'X'
   document.winner = null
   xWinCount = 0
@@ -185,6 +188,7 @@ const newGame = function () {
   $('#gameResultModal').hide()
   $('#gameboard').show()
   $('.nav-btns').show()
+
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.CreateGameFailure)
@@ -246,5 +250,6 @@ module.exports = {
   addHandlers,
   initalizeGameboard,
   OnNewGame,
-  newGame
+  newGame,
+  restStats
 }
